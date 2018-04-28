@@ -74,14 +74,29 @@ const Sidebar = (props) => {
       </div>
 
       <div className={s.socials}>
-        <a href={Globals.telegramLink} target="_blank">
-          <img src={require('../../../assets/images/social-icons/telegram.svg')} />
-        </a>
         <a href={Globals.facebookLink} target="_blank">
           <img src={require('../../../assets/images/social-icons/facebook.svg')} />
         </a>
         <a href={Globals.twitterLink} target="_blank">
           <img src={require('../../../assets/images/social-icons/twitter.svg')} />
+        </a>
+        <a href={Globals.googlePlusLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/googleplus.svg')} />
+        </a>
+        <a href={Globals.redditLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/reddit.svg')} />
+        </a>
+        <a href={Globals.mediumLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/medium.svg')} />
+        </a>
+        <a href={Globals.youtubeLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/youtube.svg')} />
+        </a>
+        <a href={Globals.telegramLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/telegram.svg')} />
+        </a>
+        <a href={Globals.linkedInLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/linkedin.svg')} />
         </a>
       </div>
     </div>
