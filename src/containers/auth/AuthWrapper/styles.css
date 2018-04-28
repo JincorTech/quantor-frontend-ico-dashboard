@@ -2,8 +2,12 @@
   width: 100%;
   min-height: 100vh;
   height: auto;
-  background-color: #13a438;
   position: relative;
+  background-color: #152557;
+  background-image: url('/assets/images/top2x.png'), url('/assets/images/bg_bottom.svg');
+  background-position: 50% 0, 50% 100%;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% auto, 100% auto;
 }
 
 .form {
@@ -23,8 +27,21 @@
   margin-bottom: 40px;
 
   & > img {
-    width: 150px;
-    height: 150px;
+    width: 54px;
+    height: 54px;
+  }
+}
+
+.title {
+  width: 100%;
+  margin: 40px -98px;
+
+  @media screen and (max-width: 480px) {
+    margin: 40px auto;
+
+    & > img {
+      width: 100%;
+    }
   }
 }
 
