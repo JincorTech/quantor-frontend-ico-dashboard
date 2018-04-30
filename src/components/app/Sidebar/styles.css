@@ -32,11 +32,11 @@
   transition: 0.1s linear all;
 
   &:hover {
-    color: #da0812;
+    color: #172759;
   }
 
   &.active {
-    color: #da0812;
+    color: #172759;
     font: bold 16px Roboto;
 
     &:hover {
@@ -48,7 +48,7 @@
 
 .activeLink {
   composes: link;
-  color: #da0812;
+  color: #172759;
   font: bold 16px Roboto;
 
   &:hover {
