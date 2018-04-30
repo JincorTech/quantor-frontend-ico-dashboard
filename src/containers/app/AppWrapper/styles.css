@@ -27,6 +27,7 @@
 
   &.alert {
     height: calc(100% - 45px);
+    background-color: #4e20b0;
   }
 }
 
@@ -37,6 +38,7 @@
   padding: 0 40px 50px;
   box-sizing: border-box;
   overflow-y: scroll;
+  background-color: #172759;
 
   @media only screen and (max-width: 480px) {
     width: 100%;

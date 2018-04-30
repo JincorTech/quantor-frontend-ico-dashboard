@@ -1,5 +1,5 @@
 .sidebar {
-  background-color: #f8f9fa;
+  background-color: #4e20b0;
   position: relative;
   height: 100%;
 }
@@ -32,11 +32,11 @@
   transition: 0.1s linear all;
 
   &:hover {
-    color: #172759;
+    color: #da0812;
   }
 
   &.active {
-    color: #172759;
+    color: #da0812;
     font: bold 16px Roboto;
 
     &:hover {
@@ -48,7 +48,7 @@
 
 .activeLink {
   composes: link;
-  color: #172759;
+  color: #da0812;
   font: bold 16px Roboto;
 
   &:hover {
