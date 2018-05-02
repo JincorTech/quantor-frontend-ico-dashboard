@@ -1,5 +1,5 @@
 .sidebar {
-  background-color: #4e20b0;
+  background-color: #101d40;
   position: relative;
   height: 100%;
 }
@@ -26,17 +26,17 @@
   display: block;
   margin: 20px 0;
   font: normal 16px Roboto;
-  color: #6e7987;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
   transition: 0.1s linear all;
 
   &:hover {
-    color: #da0812;
+    color: #88affe;
   }
 
   &.active {
-    color: #da0812;
+    color: #88affe;
     font: bold 16px Roboto;
 
     &:hover {
@@ -48,7 +48,7 @@
 
 .activeLink {
   composes: link;
-  color: #da0812;
+  color: #88affe;
   font: bold 16px Roboto;
 
   &:hover {
