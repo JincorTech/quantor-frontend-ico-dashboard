@@ -1,11 +1,11 @@
 .title {
   font: normal 26px/36px Roboto;
-  color: #222;
+  color: #fff;
 }
 
 .text {
   font: normal 16px/24px Roboto;
-  color: #6e7987;
+  color: #88affe;
   width: 500px;
   margin-top: 15px;
 }
@@ -18,5 +18,5 @@
 
 .verificationText {
   font: 16px Roboto;
-  color: #6e7987;
+  color: #88affe;
 }
