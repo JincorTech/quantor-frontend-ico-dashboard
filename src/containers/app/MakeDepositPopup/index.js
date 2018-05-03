@@ -49,13 +49,14 @@ class MakeDepositPopup extends Component {
             disabled
             component={RenderInput}
             name="ethAddress"
-            type="text"/>
+            type="text"
+            isBright/>
 
           <div className={s.button}>
             <CopyToClipboard
               text={ethAddress}
               onCopy={() => this.setState({ copied: true })}>
-              <Button>
+              <Button isBright>
                 {copied ? t('copied') : t('copyAddress')}
               </Button>
             </CopyToClipboard>
