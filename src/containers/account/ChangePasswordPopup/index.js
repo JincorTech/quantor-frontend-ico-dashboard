@@ -38,7 +38,8 @@ const ChangePasswordPopup = (props) => {
               component={RenderPassword}
               name="oldPassword"
               placeholder={t('oldPassword')}
-              validate={passwordValidate}/>
+              validate={passwordValidate}
+              isBright/>
           </div>
 
           <div className={s.field}>
@@ -46,7 +47,8 @@ const ChangePasswordPopup = (props) => {
               component={RenderPassword}
               name="newPassword"
               placeholder={t('newPassword')}
-              validate={passwordValidate}/>
+              validate={passwordValidate}
+              isBright/>
           </div>
 
           <div className={s.description}>
@@ -54,7 +56,7 @@ const ChangePasswordPopup = (props) => {
           </div>
 
           <div className={s.button}>
-            <Button type="submit" spinner={spinner} disabled={invalid}>{t('change')}</Button>
+            <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('change')}</Button>
           </div>
         </form>
       </div>

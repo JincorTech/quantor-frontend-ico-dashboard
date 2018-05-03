@@ -122,7 +122,8 @@ class WalletData extends Component {
               <CopyToClipboard text={this._getWalletData()}
                 onCopy={() => this.setState({ copied: true })}>
                 <Button
-                  styl="secondary">
+                  styl="secondary"
+                  isBright>
                   { copied ? t('copied') : t('copyAccountInfo') }
                 </Button>
               </CopyToClipboard>

@@ -20,9 +20,7 @@
   }
 
   &.secondary {
-    /* background-color: #fff; */
-    color: #172759;
-    border: 1px solid #172759;
+    background-color: rgba(0, 0, 0, 0);
   }
 }
 
@@ -34,6 +32,11 @@
     background-color: #294184;
     color: #6581b7;
   }
+
+  &.secondary {
+    color: #88affe;
+    border: 1px solid #88affe;
+  }
 }
 
 .bright {
@@ -43,5 +46,10 @@
   &:disabled {
     background-color: #e6edff;
     color: #b0b6e2;
+  }
+
+  &.secondary {
+    color: #172759;
+    border: 1px solid #172759;
   }
 }
