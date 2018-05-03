@@ -48,6 +48,7 @@ class RestorePasswordNewPasswordForm extends Component {
               name="password"
               type="password"
               placeholder={t('enterNewPassword')}
+              isBright
               validate={passwordValidate}/>
           </div>
 
@@ -82,7 +83,7 @@ class RestorePasswordNewPasswordForm extends Component {
           </div>
 
           <div className={s.button}>
-            <Button type="submit" spinner={spinner} disabled={invalid}>{t('submit')}</Button>
+            <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
           </div>
         </form>
       </div>

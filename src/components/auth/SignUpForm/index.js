@@ -61,7 +61,8 @@ class SignUpForm extends Component {
             component={RenderInput}
             name="referral"
             type="text"
-            placeholder={t('referralCode')}/>
+            placeholder={t('referralCode')}
+            isBright/>
         </div>
       );
     };
@@ -79,7 +80,8 @@ class SignUpForm extends Component {
               name="name"
               type="text"
               placeholder={t('fullName')}
-              validate={fullNameValidate}/>
+              validate={fullNameValidate}
+              isBright/>
           </div>
 
           <div className={s.field}>
@@ -88,7 +90,8 @@ class SignUpForm extends Component {
               name="email"
               type="text"
               placeholder={t('email')}
-              validate={emailValidate}/>
+              validate={emailValidate}
+              isBright/>
           </div>
 
           <div className={s.field}>
@@ -97,7 +100,8 @@ class SignUpForm extends Component {
               name="password"
               type="password"
               placeholder={t('password')}
-              validate={passwordValidate}/>
+              validate={passwordValidate}
+              isBright/>
           </div>
 
           {renderReferralField(referralCode)}
@@ -117,7 +121,7 @@ class SignUpForm extends Component {
           </div>
 
           <div className={s.button}>
-            <Button type="submit" spinner={spinner} disabled={invalid}>{t('submit')}</Button>
+            <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
           </div>
         </form>
 

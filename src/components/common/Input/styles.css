@@ -1,7 +1,5 @@
 .input {
-  background-color: #213775;
   font: normal 15px Roboto;
-  color: #fff;
   padding: 15px;
   border: 1px solid #526db7;
   border-radius: 4px;
@@ -11,7 +9,7 @@
   transition: 0.1s linear all;
 
   &::placeholder {
-    color: #88affe;
+    color: #9e9e9e;
   }
 
   &:focus {
@@ -38,6 +36,16 @@
   top: 50%;
   transform: translateY(-50%);
   font: normal 32px Roboto;
-  color: #88affe;
+  color: #222;
   pointer-events: none;
+}
+
+.dark {
+  background-color: #213775;
+  color: #fff;
+}
+
+.bright {
+  background-color: #fff;
+  color: #222;
 }

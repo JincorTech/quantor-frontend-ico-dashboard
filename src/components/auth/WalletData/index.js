@@ -87,7 +87,8 @@ class WalletData extends Component {
               disabled
               component={RenderInput}
               name="address"
-              type="text"/>
+              type="text"
+              isBright/>
           </div>
 
           <div className={s.tip}>
@@ -99,7 +100,8 @@ class WalletData extends Component {
               disabled
               component={RenderInput}
               name="mnemonic"
-              type="text"/>
+              type="text"
+              isBright/>
           </div>
 
           <div className={s.tip}>
@@ -111,7 +113,8 @@ class WalletData extends Component {
               disabled
               component={RenderInput}
               name="privateKey"
-              type="text"/>
+              type="text"
+              isBright/>
           </div>
 
           <div className={s.button}>
@@ -127,7 +130,8 @@ class WalletData extends Component {
             <div>
               <Button
                 disabled={btnDisabled}
-                onClick={() => continueAction()}>
+                onClick={() => continueAction()}
+                isBright>
                 {t('continueAndDownload')} {counter > 0 && `(${counter} ${t('sec')})`}
               </Button>
             </div>

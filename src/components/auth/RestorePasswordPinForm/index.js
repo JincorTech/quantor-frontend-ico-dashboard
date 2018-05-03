@@ -38,11 +38,12 @@ const RestorePasswordPinForm = (props) => {
             name="pin"
             type="text"
             placeholder={t('enterVerificationCode')}
-            validate={twoFactorCode}/>
+            validate={twoFactorCode}
+            isBright/>
         </div>
 
         <div className={s.button}>
-          <Button type="submit" spinner={spinner} disabled={invalid}>{t('submit')}</Button>
+          <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
         </div>
       </form>
     </div>
