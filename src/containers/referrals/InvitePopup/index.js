@@ -26,14 +26,15 @@ const InvitePopup = (props) => {
       <div>
         <div className={s.text}>{t('inviteByEmail')}</div>
 
-        <EmailsInput placeholder={t('enterEmails')}/>
+        <EmailsInput placeholder={t('enterEmails')} isBright/>
 
         <div className={s.tip}>{t('deleteEmailTip')}</div>
 
         <Button
           spinner={spinner}
           onClick={() => inviteUsers()}
-          type="button">{t('invite')}</Button>
+          type="button"
+          isBright>{t('invite')}</Button>
       </div>
     </Popup>
   );
