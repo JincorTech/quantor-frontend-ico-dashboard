@@ -73,7 +73,7 @@ const Button = (props) => {
         className={className}
         {...restProps}
       >
-        {spinner ? <Spinner /> : children}
+        {spinner ? <Spinner color={isBright ? '#fff' : '#3143bf'}/> : children}
       </button>
     );
   };
