@@ -67,7 +67,8 @@ class VerifyBuyTokensPopup extends Component {
                   component={RenderInput}
                   name="code"
                   placeholder={t('verificationCode')}
-                  validate={twoFactorCode}/>
+                  validate={twoFactorCode}
+                  isBright/>
               </div>
 
               <div className={s.field}>
@@ -91,7 +92,7 @@ class VerifyBuyTokensPopup extends Component {
               type="hidden"/>
 
             <div className={s.button}>
-              <Button type="submit" spinner={spinner} disabled={invalid}>{t('purchase')}</Button>
+              <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('purchase')}</Button>
             </div>
           </form>
         </div>
