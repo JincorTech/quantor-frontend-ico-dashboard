@@ -38,9 +38,9 @@ const getMock = (path) => {
     case '/dashboard':
       return {
         ethBalance: '1.0001',
-        jcrTokensSold: '5000',
-        jcrTokenBalance: '500.00012345678912345',
-        jcrTokenPrice: {
+        tokensSold: '5000',
+        tokenBalance: '500.00012345678912345',
+        tokenPrice: {
           ETH: '0.005',
           USD: '1'
         },
@@ -69,9 +69,9 @@ const getMock = (path) => {
           from: '0xBd0cb067A75C23EFB290B4e223059Af8E4AF4fd8',
           to: '0x446cd17EE68bD5A567d43b696543615a94b01760',
           ethAmount: '0',
-          jcrAmount: '1',
+          tokenAmount: '1',
           status: 'confirmed',
-          type: 'jcr_transfer',
+          type: 'token_transfer',
           direction: 'out'
         },
         {
@@ -82,9 +82,9 @@ const getMock = (path) => {
           from: '0xBd0cb067A75C23EFB290B4e223059Af8E4AF4fd8',
           to: '0x446cd17EE68bD5A567d43b696543615a94b01760',
           ethAmount: '0',
-          jcrAmount: '1',
+          tokenAmount: '1',
           status: 'confirmed',
-          type: 'jcr_transfer',
+          type: 'token_transfer',
           direction: 'out'
         },
         {
