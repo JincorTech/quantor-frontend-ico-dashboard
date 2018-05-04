@@ -15,10 +15,10 @@
 }
 
 .logo {
-  margin-bottom: 76px;
+  margin-bottom: 40px;
 
   & > img {
-    size: 100px;
+    size: 54px;
   }
 }
 

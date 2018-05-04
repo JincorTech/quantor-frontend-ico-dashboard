@@ -25,6 +25,10 @@ const Sidebar = (props) => {
         </button>
       </div>
 
+      <div className={s.logo}>
+        <img src={require('../../../assets/images/logo.svg')} alt={t('companyName')}/>
+      </div>
+
       <div className={s.navigation}>
         <IndexLink
           onClick={() => closeSidebar()}
