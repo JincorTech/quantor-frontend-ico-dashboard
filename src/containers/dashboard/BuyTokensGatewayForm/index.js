@@ -62,12 +62,12 @@ class BuyTokensGatewayForm extends Component {
     const ethRate = new BigNum(this.getEthRateFromProps(nextProps));
     const minInvest = new BigNum(0.1);
 
-    if (currencyValue.toNumber() && currencyValue.greaterThanOrEqualTo(minInvest)) {
-      const eth = currencyValue.mul(currencyRate).dividedBy(ethRate);
+    if (currencyValue.toNumber() && currencyValue.isGreaterThanOrEqualTo(minInvest)) {
+      const eth = currencyValue.multipliedBy(currencyRate).dividedBy(ethRate);
       const tokens = eth.dividedBy(nextProps.ethTokenPrice).toFixed(3);
       const expectedFee = nextProps.selectedCurrency === 'ETH'
         ? ethTxFee
-        : ethTxFee.mul(ethRate).dividedBy(currencyRate);
+        : ethTxFee.multipliedBy(ethRate).dividedBy(currencyRate);
       const currencyAmount = currencyValue.plus(expectedFee);
       this.props.change('tokens', tokens);
       this.setState({
@@ -195,7 +195,7 @@ export default connect(
   (state) => ({
     spinner: state.dashboard.buyTokens.spinner,
     kycStatus: state.app.app.user.kycStatus,
-    ethTokenPrice: state.dashboard.dashboard.jcrTokenPrice.ETH,
+    ethTokenPrice: state.dashboard.dashboard.tokenPrice.ETH,
     ethTxFee: state.dashboard.txFee.expectedTxFee,
     minInvest: state.dashboard.txFee.minInvest,
     currencyValue: formSelector(state, 'currencyValue'),
