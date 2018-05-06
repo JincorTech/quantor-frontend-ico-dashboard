@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import BigNum from 'bignumber.js';
+import { translate } from 'react-i18next';
 import s from './styles.css';
 
 import { ethInvest } from '../../../utils/validators';
@@ -91,7 +92,8 @@ class BuyTokensGatewayForm extends Component {
       openTxFeeHelp,
       selectedCurrency,
       currencies,
-      createTransaction
+      createTransaction,
+      t
     } = this.props;
 
     const renderButton = () => {
@@ -142,10 +144,10 @@ class BuyTokensGatewayForm extends Component {
           <div className={s.field}>
             <Field
               component={RenderInput}
-              tip="EXON"
+              tip={t('tokenName')}
               size="large"
               name="tokens"
-              placeholder="0 EXON"
+              placeholder={`0 ${t('tokenName')}`}
               disabled/>
           </div>
 
@@ -191,6 +193,8 @@ const FormComponent = reduxForm({
 
 const formSelector = formValueSelector('buyTokensGateway');
 
+const TranslatedComponent = translate('dashboard')(FormComponent);
+
 export default connect(
   (state) => ({
     spinner: state.dashboard.buyTokens.spinner,
@@ -207,4 +211,4 @@ export default connect(
     selectCurrency,
     createTransaction
   }
-)(FormComponent);
+)(TranslatedComponent);
