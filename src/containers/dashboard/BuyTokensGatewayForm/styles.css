@@ -15,7 +15,7 @@
 
 .gas {
   font: normal 16px Roboto;
-  color: #222;
+  color: #88affe;
   text-align: center;
   margin: 15px 0;
 
@@ -27,7 +27,7 @@
 .tip {
   margin-top: 40px;
   font: normal 16px/24px Roboto;
-  color: #6e7987;
+  color: #88affe;
 
   & p {
     margin-top: 20px;
@@ -35,11 +35,11 @@
 }
 
 .select {
-  color: #757575;
-  background-color: #fff;
+  color: #fff;
+  background-color: #213775;
   font: normal 32px Roboto;
   padding: 15px 100px 15px 15px;
-  border: 1px solid #dbdfe4;
+  border: 1px solid #526db7;
   border-radius: 4px;
   outline: none;
   width: 100%;

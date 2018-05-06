@@ -167,12 +167,12 @@ class BuyTokensGatewayForm extends Component {
 
         <div className={s.tip}>
           <p>
-            Now you can purchase EXON tokens with {selectedCurrency}.<br/>
+            Now you can purchase QNT tokens with {selectedCurrency}.<br/>
             Use this calculator to evaluate the transaction rates.
           </p>
           <p>
             Enter the amount of {selectedCurrency} you want to contribute and find out the
-            amount of EXON tokens you will get.
+            amount of QNT tokens you will get.
             Please note that a little bit {selectedCurrency} adding on top to cover the tx fee.<br/>
             <a onClick={() => openTxFeeHelp()}>What is the tx fee?</a>
           </p>

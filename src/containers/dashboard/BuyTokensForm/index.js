@@ -113,7 +113,6 @@ class BuyTokensForm extends Component {
 
     return (
       <div className={s.form}>
-        <div className={s.title}>{t('buyTokens')}</div>
         <form>
           <div className={s.field}>
             <Field

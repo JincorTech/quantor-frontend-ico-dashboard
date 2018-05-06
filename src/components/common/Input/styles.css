@@ -9,7 +9,7 @@
   transition: 0.1s linear all;
 
   &::placeholder {
-    color: #9e9e9e;
+    color: #88affe;
   }
 
   &:focus {
@@ -36,7 +36,7 @@
   top: 50%;
   transform: translateY(-50%);
   font: normal 32px Roboto;
-  color: #222;
+  color: #88affe;
   pointer-events: none;
 }
 
