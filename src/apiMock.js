@@ -367,11 +367,11 @@ const postMock = (path, body) => {
       return {
         amount: '1.00000000',
         address: '0xf3268eac2455e5daf0ac60ad33096a381060ddca',
-        txn_id: 'CPCC5PFWQLX81ADHWU8M7VRGEB',
-        confirms_needed: '10',
+        txnId: 'CPCC5PFWQLX81ADHWU8M7VRGEB',
+        confirmsNeeded: '10',
         timeout: 9000,
-        status_url: 'https://www.coinpayments.net/index.php?cmd=status&id=XXX&key=ZZZ',
-        qrcode_url: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png'
+        statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=XXX&key=ZZZ',
+        qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png'
       };
 
     default:
