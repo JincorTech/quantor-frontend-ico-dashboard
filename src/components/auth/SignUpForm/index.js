@@ -100,8 +100,7 @@ class SignUpForm extends Component {
               name="password"
               type="password"
               placeholder={t('password')}
-              validate={passwordValidate}
-              isBright/>
+              validate={passwordValidate}/>
           </div>
 
           {renderReferralField(referralCode)}

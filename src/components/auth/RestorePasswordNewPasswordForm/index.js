@@ -48,7 +48,6 @@ class RestorePasswordNewPasswordForm extends Component {
               name="password"
               type="password"
               placeholder={t('enterNewPassword')}
-              isBright
               validate={passwordValidate}/>
           </div>
 

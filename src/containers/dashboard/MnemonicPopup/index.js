@@ -48,8 +48,7 @@ class MnemonicPopup extends Component {
                 component={RenderPassword}
                 name="mnemonic"
                 placeholder="Mnemonic phrase"
-                validate={required}
-                isBright/>
+                validate={required}/>
             </div>
 
             <Field

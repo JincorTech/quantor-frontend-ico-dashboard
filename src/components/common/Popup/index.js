@@ -31,12 +31,14 @@ class Popup extends Component {
       title,
       children,
       open,
-      close
+      close,
+      width
     } = this.props;
 
     const renderPopup = () => (
       <div className={s.background} onClick={this._handleBackdropClick}>
-        <div className={s.popup} ref={(popup) => { this.popup = popup; }}>
+        <div className={s.popup} style={width && { width }}
+            ref={(popup) => { this.popup = popup; }}>
           {title && <div className={s.title}>{title}</div>}
           <div className={s.body}>{children}</div>
           <div className={s.footer}>
