@@ -1,8 +1,8 @@
 #!/bin/bash
 
 set -ex
-DEV_IMAGE_NAME="jincort/mypizzapie-frontend-ico-dashboard-develop"
-PROD_IMAGE_NAME="jincort/mypizzapie-frontend-ico-dashboard"
+DEV_IMAGE_NAME="jincort/quantor-frontend-ico-dashboard-develop"
+PROD_IMAGE_NAME="jincort/quantor-frontend-ico-dashboard"
 TAG="${1}"
 
 docker push ${DEV_IMAGE_NAME}:${TAG}

@@ -1,6 +1,6 @@
 # Jincor Investor Dashboard Frontend
 
-[![Build Status](https://travis-ci.com/JincorTech/mypizzapie-frontend-ico-dashboard.svg?branch=develop)](https://travis-ci.com/JincorTech/mypizzapie-frontend-ico-dashboard)
+[![Build Status](https://travis-ci.com/JincorTech/quantor-frontend-ico-dashboard.svg?branch=develop)](https://travis-ci.com/JincorTech/quantor-frontend-ico-dashboard)
 
 ### Commit hooks
 

@@ -1,8 +1,8 @@
 {
-  "name": "mypizzapie-frontend-ico-dashboard",
+  "name": "quantor-frontend-ico-dashboard",
   "version": "2.0.0",
   "description": "Jincor Investor Dashboard",
-  "repository": "https://github.com/JincorTech/mypizzapie-frontend-ico-dashboard",
+  "repository": "https://github.com/JincorTech/quantor-frontend-ico-dashboard",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
