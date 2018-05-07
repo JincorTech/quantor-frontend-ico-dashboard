@@ -22,6 +22,7 @@ import disableTwoFactorAuth from './modules/account/disableTwoFactorAuth';
 
 import dashboard from './modules/dashboard/dashboard';
 import buyTokens from './modules/dashboard/buyTokens';
+import paymentGateway from './modules/dashboard/paymentGateway';
 import txFee from './modules/dashboard/txFee';
 import txFeeHelp from './modules/dashboard/txFeeHelp';
 
@@ -67,6 +68,7 @@ export default combineReducers({
   dashboard: combineReducers({
     dashboard,
     buyTokens,
+    paymentGateway,
     txFee,
     txFeeHelp
   }),

@@ -25,6 +25,10 @@ const Sidebar = (props) => {
         </button>
       </div>
 
+      <div className={s.logo}>
+        <img src={require('../../../assets/images/logo.svg')} alt={t('companyName')}/>
+      </div>
+
       <div className={s.navigation}>
         <IndexLink
           onClick={() => closeSidebar()}
@@ -38,11 +42,11 @@ const Sidebar = (props) => {
           activeClassName={s.active}
           to={namedRoutes.transactions}>{t('transactions')}</Link>
 
-        {/* <Link
+        <Link
           onClick={() => closeSidebar()}
           className={s.link}
           activeClassName={s.active}
-          to={namedRoutes.referrals}>{t('partnerProgram')}</Link> */}
+          to={namedRoutes.referrals}>{t('partnerProgram')}</Link>
 
         {/* <Link
           onClick={() => closeSidebar()}
@@ -74,14 +78,29 @@ const Sidebar = (props) => {
       </div>
 
       <div className={s.socials}>
-        <a href={Globals.telegramLink} target="_blank">
-          <img src={require('../../../assets/images/social-icons/telegram.svg')} />
-        </a>
         <a href={Globals.facebookLink} target="_blank">
           <img src={require('../../../assets/images/social-icons/facebook.svg')} />
         </a>
         <a href={Globals.twitterLink} target="_blank">
           <img src={require('../../../assets/images/social-icons/twitter.svg')} />
+        </a>
+        <a href={Globals.googlePlusLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/googleplus.svg')} />
+        </a>
+        <a href={Globals.redditLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/reddit.svg')} />
+        </a>
+        <a href={Globals.mediumLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/medium.svg')} />
+        </a>
+        <a href={Globals.youtubeLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/youtube.svg')} />
+        </a>
+        <a href={Globals.telegramLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/telegram.svg')} />
+        </a>
+        <a href={Globals.linkedInLink} target="_blank">
+          <img src={require('../../../assets/images/social-icons/linkedin.svg')} />
         </a>
       </div>
     </div>

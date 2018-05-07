@@ -33,6 +33,7 @@ const SignInForm = (props) => {
             name="email"
             type="text"
             placeholder={t('email')}
+            isBright
             validate={emailValidate}/>
         </div>
 
@@ -50,7 +51,7 @@ const SignInForm = (props) => {
         </div>
 
         <div className={s.button}>
-          <Button type="submit" spinner={spinner} disabled={invalid}>{t('submit')}</Button>
+          <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
         </div>
       </form>
 

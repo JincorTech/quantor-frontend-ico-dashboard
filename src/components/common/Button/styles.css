@@ -5,14 +5,11 @@
   box-sizing: border-box;
   width: 100%;
   font: 500 15px Roboto;
-  color: #fff;
-  background-color: #da0812;
   border: none;
   border-radius: 4px;
   padding: 11px;
 
   &:disabled {
-    background-color: #dbdfe4;
     pointer-events: none;
     cursor: dont-allow;
   }
@@ -23,8 +20,36 @@
   }
 
   &.secondary {
-    background-color: #fff;
-    color: #da0812;
-    border: 1px solid #da0812;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.dark {
+  color: #3143bf;
+  background-color: #fff;
+
+  &:disabled {
+    background-color: #294184;
+    color: #6581b7;
+  }
+
+  &.secondary {
+    color: #88affe;
+    border: 1px solid #88affe;
+  }
+}
+
+.bright {
+  color: #fff;
+  background-color: #294184;
+
+  &:disabled {
+    background-color: #e6edff;
+    color: #b0b6e2;
+  }
+
+  &.secondary {
+    color: #172759;
+    border: 1px solid #172759;
   }
 }

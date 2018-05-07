@@ -82,7 +82,7 @@ class RestorePasswordNewPasswordForm extends Component {
           </div>
 
           <div className={s.button}>
-            <Button type="submit" spinner={spinner} disabled={invalid}>{t('submit')}</Button>
+            <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
           </div>
         </form>
       </div>

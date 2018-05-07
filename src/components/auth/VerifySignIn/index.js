@@ -54,7 +54,8 @@ class verifySignIn extends Component {
                 name="code"
                 type="text"
                 placeholder={t('enterPin')}
-                validate={required}/>
+                validate={required}
+                isBright/>
             </div>
 
             <Field
@@ -77,7 +78,7 @@ class verifySignIn extends Component {
             disabled/>
 
           <div className={s.button}>
-            <Button type="submit" spinner={spinner} disabled={invalid}>{t('submit')}</Button>
+            <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
           </div>
         </form>
       </div>

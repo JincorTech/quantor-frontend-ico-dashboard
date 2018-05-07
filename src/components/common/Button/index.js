@@ -15,6 +15,7 @@ const Button = (props) => {
     styl,
     href,
     to,
+    isBright,
     ...restProps
   } = props;
 
@@ -39,7 +40,8 @@ const Button = (props) => {
   const className = cx(
     s.button,
     getSize(size),
-    getStyle(styl)
+    getStyle(styl),
+    isBright ? s.bright : s.dark
   );
 
   const renderElement = () => {
@@ -71,7 +73,7 @@ const Button = (props) => {
         className={className}
         {...restProps}
       >
-        {spinner ? <Spinner /> : children}
+        {spinner ? <Spinner color={isBright ? '#fff' : '#3143bf'}/> : children}
       </button>
     );
   };

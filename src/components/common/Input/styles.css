@@ -1,15 +1,19 @@
 .input {
   font: normal 15px Roboto;
   padding: 15px;
-  border: 1px solid #dbdfe4;
+  border: 1px solid #526db7;
   border-radius: 4px;
   outline: none;
   width: 100%;
   box-sizing: border-box;
   transition: 0.1s linear all;
 
+  &::placeholder {
+    color: #88affe;
+  }
+
   &:focus {
-    border: 1px solid #da0812;
+    border: 1px solid #88affe;
   }
 
   &.large {
@@ -32,6 +36,16 @@
   top: 50%;
   transform: translateY(-50%);
   font: normal 32px Roboto;
-  color: #9da0a4;
+  color: #88affe;
   pointer-events: none;
+}
+
+.dark {
+  background-color: #213775;
+  color: #fff;
+}
+
+.bright {
+  background-color: #fff;
+  color: #222;
 }

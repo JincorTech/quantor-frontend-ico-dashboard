@@ -1,5 +1,5 @@
 .sidebar {
-  background-color: #f8f9fa;
+  background-color: #101d40;
   position: relative;
   height: 100%;
 }
@@ -15,10 +15,10 @@
 }
 
 .logo {
-  margin-bottom: 76px;
+  margin-bottom: 40px;
 
   & > img {
-    size: 100px;
+    size: 54px;
   }
 }
 
@@ -26,17 +26,17 @@
   display: block;
   margin: 20px 0;
   font: normal 16px Roboto;
-  color: #6e7987;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
   transition: 0.1s linear all;
 
   &:hover {
-    color: #da0812;
+    color: #88affe;
   }
 
   &.active {
-    color: #da0812;
+    color: #88affe;
     font: bold 16px Roboto;
 
     &:hover {
@@ -48,7 +48,7 @@
 
 .activeLink {
   composes: link;
-  color: #da0812;
+  color: #88affe;
   font: bold 16px Roboto;
 
   &:hover {
@@ -68,7 +68,8 @@
   margin: 0 -10px;
 
   & > a {
-    margin: 0 10px;
+    display: inline-block;
+    margin: 5px 10px;
 
     & > img {
       size: 24px;

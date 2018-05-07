@@ -54,7 +54,7 @@ const ChangePasswordPopup = (props) => {
           </div>
 
           <div className={s.button}>
-            <Button type="submit" spinner={spinner} disabled={invalid}>{t('change')}</Button>
+            <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('change')}</Button>
           </div>
         </form>
       </div>

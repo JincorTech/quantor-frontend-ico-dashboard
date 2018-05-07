@@ -4,23 +4,23 @@
 
 .block {
   padding: 15px 0;
-  border-bottom: 1px solid #e6e8eb;
+  border-bottom: 1px solid #4e6094;
 }
 
 .val {
   font: normal 32px Roboto;
-  color: #222;
+  color: #d6e3fd;
 }
 
 .label {
   font: normal 16px Roboto;
-  color: #6e7987;
+  color: #88affe;
   margin-top: 5px;
 }
 
 .currencybutton {
   font: normal 16px Roboto;
-  color: #da0812;
+  color: #88affe;
   background-color: transparent;
   outline: none;
   margin: 0;
@@ -35,5 +35,5 @@
   pointer-events: none;
   cursor: default;
   font: bold 16px Roboto;
-  color: #6e7987;
+  color: #fff;
 }

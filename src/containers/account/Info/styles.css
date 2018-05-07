@@ -1,6 +1,6 @@
 .name {
   font: normal 26px/36px Roboto;
-  color: #222;
+  color: #88affe;
 
   & img {
     margin-left: 10px;
@@ -9,7 +9,7 @@
 
 .email {
   font: normal 16px/24px Roboto;
-  color: #6e7987;
+  color: #d6e3fd;
   margin-top: 15px;
 }
 

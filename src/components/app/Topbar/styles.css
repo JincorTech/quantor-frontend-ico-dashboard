@@ -2,7 +2,7 @@
   position: relative;
   display: block;
   padding: 40px 0 30px;
-  border-bottom: 1px solid #e6e8eb;
+  border-bottom: 1px solid #4e6094;
 
   @media only screen and (max-width: 480px) {
     padding: 20px 0;
@@ -11,7 +11,7 @@
 
 .title {
   font: normal 26px Roboto;
-  color: #444;
+  color: #fff;
   width: 100%;
 
   @media only screen and (max-width: 480px) {
@@ -35,7 +35,7 @@
     display: inline-block;
     vertical-align: middle;
     font: normal 18px Roboto;
-    color: #6e7987;
+    color: #88affe;
   }
 
   @media only screen and (max-width: 480px) {

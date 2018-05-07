@@ -65,7 +65,8 @@ class EnableTwoFactorAuthPopup extends Component {
                 component={RenderInput}
                 name="code"
                 placeholder={t('code')}
-                validate={twoFactorCode}/>
+                validate={twoFactorCode}
+                isBright/>
             </div>
 
             <Field
@@ -84,7 +85,8 @@ class EnableTwoFactorAuthPopup extends Component {
               <Button
                 type="submit"
                 spinner={spinner}
-                disabled={invalid}>{t('enable')}</Button>
+                disabled={invalid}
+                isBright>{t('enable')}</Button>
             </div>
           </form>
         </div>

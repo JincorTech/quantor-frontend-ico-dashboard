@@ -70,7 +70,8 @@ class VerifyChangePassword extends Component {
                   component={RenderInput}
                   name="code"
                   placeholder={t('verificationCode')}
-                  validate={required}/>
+                  validate={required}
+                  isBright/>
               </div>
 
               <div className={s.field}>
@@ -103,7 +104,7 @@ class VerifyChangePassword extends Component {
             </div>
 
             <div className={s.button}>
-              <Button type="submit" spinner={spinner} disabled={invalid}>{t('submit')}</Button>
+              <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
             </div>
           </form>
         </div>

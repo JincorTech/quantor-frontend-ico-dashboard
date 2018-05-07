@@ -8,9 +8,9 @@
 
 .title {
   font: normal 20px/36px Roboto;
-  color: #6e7987;
+  color: #88affe;
   padding-bottom: 10px;
-  border-bottom: 1px solid #e6e8eb;
+  border-bottom: 1px solid #4e6094;
   margin-bottom: 40px;
 }
 
@@ -21,7 +21,7 @@
 
 .gas {
   font: normal 16px Roboto;
-  color: #222;
+  color: #88affe;
   text-align: center;
   margin: 15px 0;
 
@@ -38,7 +38,7 @@
 .tip {
   margin-top: 40px;
   font: normal 16px/24px Roboto;
-  color: #6e7987;
+  color: #88affe;
 
   & p {
     margin-top: 20px;
