@@ -89,7 +89,7 @@ class Verification extends Component {
 
     const renderText = () => (
       <div className={s.verificationText}>
-        In order to participate in token sale, all users required to pass KYC/AML procedure. Please, contact our support at <a href={'mailto:support@mypizzapie.com'}>support@mypizzapie.com</a> or using the help box in bottom right corner of the page. Thank you for cooperation
+        In order to participate in token sale, all users required to pass KYC/AML procedure. Please, contact our support at <a href={'mailto:support@quantor.co'}>support@quantor.co</a> or using the help box in bottom right corner of the page. Thank you for cooperation
       </div>
     );
 
