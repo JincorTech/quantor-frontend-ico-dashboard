@@ -10,6 +10,7 @@ import notify from '../../../utils/notifications';
 
 // import Spinner from '../../common/Spinner';
 import Globals from '../../../locales/globals';
+import UserInfoForm from '../UserInfoForm';
 
 class Verification extends Component {
   constructor(props) {
@@ -48,6 +49,8 @@ class Verification extends Component {
 
     const renderPage = () => {
       switch (kycStatus) {
+        case 'start':
+          return renderStart();
         case 'verified':
           return renderSuccess();
         case 'failed':
@@ -58,6 +61,10 @@ class Verification extends Component {
           return renderText();
       }
     };
+
+    const renderStart = () => (
+      <UserInfoForm/>
+    );
 
     const renderFailed = () => (
       <div className={s.status}>
