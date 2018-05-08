@@ -3,6 +3,7 @@ import Globals from '../../locales/globals';
 const EMAIL_REGEXP = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 const PASSWORD_REGEXP = /^[a-zA-Z0\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{8,}$/;
 export const NUMBER_REGEXP = /^\d{0,}(\.\d{0,}){0,1}$/;
+const PHONE_REGEXP = /^([0|+[0-9]{1,5})?([7-9][0-9]{9})$/;
 
 export const requiredValidator = (msg) =>
   (value) =>
@@ -35,6 +36,10 @@ export const numberValidator = (msg) =>
   (value) =>
     (value && NUMBER_REGEXP.test(value) ? '' : msg || 'not number');
 
+export const phoneValidator = (msg) =>
+  (value) =>
+    (value && PHONE_REGEXP.test(value) ? '' : msg || 'not a phone');
+
 export const emailValidate = [
   requiredValidator('Must be filled'),
   email('Invalid e-mail')
@@ -63,6 +68,11 @@ export const twoFactorCode = [
 export const number = [
   requiredValidator('Must be filled'),
   numberValidator('Only numbers')
+];
+
+export const phone = [
+  requiredValidator('Must be filled'),
+  phoneValidator('Format is incorrect')
 ];
 
 export const ethInvest = [

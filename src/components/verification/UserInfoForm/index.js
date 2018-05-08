@@ -5,7 +5,7 @@ import s from './styles.css';
 import {
   emailValidate,
   fullNameValidate,
-  numberValidator,
+  phone,
   required
 } from '../../../utils/validators';
 
@@ -22,7 +22,7 @@ class UserInfoForm extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div className={s.container}>
         <div className={s.title}>{'Fill the fields to continue verification process'}</div>
 
         {error && <div className={s.error}>{error}</div>}
@@ -34,8 +34,8 @@ class UserInfoForm extends Component {
               name="name"
               type="text"
               placeholder={'Full Name'}
-              validate={[fullNameValidate, required]}
-              isBright />
+              validate={fullNameValidate}
+            />
           </div>
           <div className={s.field}>
             <Field
@@ -43,8 +43,8 @@ class UserInfoForm extends Component {
               name="email"
               type="text"
               placeholder={'Email'}
-              validate={[emailValidate, required]}
-              isBright/>
+              validate={emailValidate}
+            />
           </div>
           <div className={s.field}>
             <Field
@@ -52,8 +52,8 @@ class UserInfoForm extends Component {
               name="phone"
               type="text"
               placeholder={'Phone Number'}
-              validate={[numberValidator, required]}
-              isBright />
+              validate={phone}
+            />
           </div>
           <div className={s.field}>
             <Field
@@ -62,10 +62,10 @@ class UserInfoForm extends Component {
               type="text"
               placeholder={'Country'}
               validate={required}
-              isBright />
+            />
           </div>
           <div className={s.button}>
-            <Button type="submit" spinner={spinner} disabled={invalid} isBright>{'Submit'}</Button>
+            <Button type="submit" spinner={spinner} disabled={invalid}>{'Submit'}</Button>
           </div>
         </form>
       </div>

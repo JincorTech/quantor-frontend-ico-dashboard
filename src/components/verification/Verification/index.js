@@ -49,8 +49,6 @@ class Verification extends Component {
 
     const renderPage = () => {
       switch (kycStatus) {
-        case 'start':
-          return renderStart();
         case 'verified':
           return renderSuccess();
         case 'failed':
@@ -58,12 +56,16 @@ class Verification extends Component {
         case 'pending':
           return renderPending();
         default:
-          return renderText();
+          return renderUserInfoForm();
       }
     };
 
-    const renderStart = () => (
-      <UserInfoForm/>
+    const handleSubmit = (data) => {
+      console.log('!!! DATA', data);
+    };
+
+    const renderUserInfoForm = () => (
+      <UserInfoForm handleSubmit={handleSubmit}/>
     );
 
     const renderFailed = () => (
@@ -91,12 +93,6 @@ class Verification extends Component {
         <div className={s.text}>
           {t('verificationInProgressText')}
         </div>
-      </div>
-    );
-
-    const renderText = () => (
-      <div className={s.verificationText}>
-        In order to participate in token sale, all users required to pass KYC/AML procedure. Please, contact our support at <a href={'mailto:support@quantor.co'}>support@quantor.co</a> or using the help box in bottom right corner of the page. Thank you for cooperation
       </div>
     );
 

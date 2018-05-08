@@ -31,7 +31,7 @@ const getMock = (path) => {
         ethAddress: '0xdb369b56BA7b07cF287f611Fbf0DAA4A8a4C2751',
         email: 'existing@test.com',
         name: 'ICO investor',
-        kycStatus: 'verified',
+        kycStatus: 'not verified',
         defaultVerificationMethod: 'email'
       };
 
@@ -262,6 +262,14 @@ const getMock = (path) => {
 
 const postMock = (path, body) => {
   switch (path) {
+    case '/kyc/init':
+      return {
+        timestamp: '2017-11-09T06:47:31.467Z',
+        authorizationToken: 'c87447f8-fa43-4f98-a933-3c88be4e86ea',
+        clientRedirectUrl: 'https://lon.netverify.com/widget/jumio-verify/2.0/form?authorizationToken=c87447f8-fa43-4f98-a933-3c88be4e86ea',
+        jumioIdScanReference: '7b58a08e-19cf-4d28-a828-4bb577c6f69a'
+      };
+
     case '/user/me/changePassword/initiate':
       console.log('!!! POST CHANGE PASSWORD INITIATE. BODY:', body);
       return {
