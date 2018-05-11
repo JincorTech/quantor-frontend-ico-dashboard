@@ -23,7 +23,7 @@ const KycAlertPopup = (props) => {
           {t('kycAlertText')}
         </div>
         <div className={s.button}>
-          <Button onClick={() => closeKycAlertPopup()} to={namedRoutes.verification}>{t('verify')}</Button>
+          <Button onClick={() => closeKycAlertPopup()} to={namedRoutes.verification} isBright>{t('verify')}</Button>
         </div>
       </div>
     </Popup>
