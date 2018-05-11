@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router';
 import { translate } from 'react-i18next';
+import iso3311a2 from 'iso-3166-1-alpha-2';
 import s from './styles.css';
 
 import { namedRoutes } from '../../../routes';
@@ -115,15 +116,15 @@ class SignUpForm extends Component {
               isBright/>
           </div>
 
-          <div className={s.field}>
-            <Field
-              component={RenderInput}
-              name="country"
-              type="text"
-              placeholder={'Country'}
-              validate={fullNameValidate}
-              isBright/>
-          </div>
+          <Field
+            className={s.select}
+            name="country"
+            component="select"
+            validate={required}>
+            <option></option>
+            {iso3311a2.getCodes().map((code) =>
+              <option key={code} value={code}>&nbsp;&nbsp;{iso3311a2.getCountry(code)}</option>)}
+          </Field>
 
           <div className={s.field}>
             <Field
