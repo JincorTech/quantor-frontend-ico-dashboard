@@ -1,5 +1,5 @@
 import { all, takeLatest, call, put, fork } from 'redux-saga/effects';
-import { post } from '../../utils/fetch';
+import { get } from '../../utils/fetch';
 
 import { initVerification } from '../../redux/modules/verification/verification';
 
@@ -7,9 +7,9 @@ import { initVerification } from '../../redux/modules/verification/verification'
  * Init verification
  */
 
-function* initVerificationIterator({ payload }) {
+function* initVerificationIterator() {
   try {
-    const data = yield call(post, '/kyc/init', payload);
+    const data = yield call(get, '/kyc/init');
     yield put(initVerification.success(data));
   } catch (e) {
     yield put(initVerification.failure(e));
