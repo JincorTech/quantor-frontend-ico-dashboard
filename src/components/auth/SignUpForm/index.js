@@ -9,7 +9,8 @@ import {
   emailValidate,
   passwordValidate,
   fullNameValidate,
-  required
+  required,
+  phone
 } from '../../../utils/validators';
 
 import RenderInput from '../../forms/RenderInput';
@@ -77,9 +78,19 @@ class SignUpForm extends Component {
           <div className={s.field}>
             <Field
               component={RenderInput}
-              name="name"
+              name="firstName"
               type="text"
-              placeholder={t('fullName')}
+              placeholder={'First Name'}
+              validate={fullNameValidate}
+              isBright/>
+          </div>
+
+          <div className={s.field}>
+            <Field
+              component={RenderInput}
+              name="lastName"
+              type="text"
+              placeholder={'Last Name'}
               validate={fullNameValidate}
               isBright/>
           </div>
@@ -91,6 +102,26 @@ class SignUpForm extends Component {
               type="text"
               placeholder={t('email')}
               validate={emailValidate}
+              isBright/>
+          </div>
+
+          <div className={s.field}>
+            <Field
+              component={RenderInput}
+              name="phone"
+              type="text"
+              placeholder={'Phone Number'}
+              validate={phone}
+              isBright/>
+          </div>
+
+          <div className={s.field}>
+            <Field
+              component={RenderInput}
+              name="country"
+              type="text"
+              placeholder={'Country'}
+              validate={fullNameValidate}
               isBright/>
           </div>
 
@@ -135,8 +166,11 @@ class SignUpForm extends Component {
 const FormComponent = reduxForm({
   form: 'signUp',
   initialValues: {
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
+    phone: '',
+    country: '',
     password: '',
     referral: '',
     agreeTos: false,
