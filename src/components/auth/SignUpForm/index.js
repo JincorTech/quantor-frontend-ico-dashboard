@@ -121,7 +121,7 @@ class SignUpForm extends Component {
             name="country"
             component="select"
             validate={required}>
-            <option selected>&nbsp;&nbsp;Choose your country...</option>
+            <option value=''>&nbsp;&nbsp;Choose your country...</option>
             {iso3311a2.getCodes().map((code) =>
               <option key={code} value={code}>&nbsp;&nbsp;{iso3311a2.getCountry(code)}</option>)}
           </Field>
