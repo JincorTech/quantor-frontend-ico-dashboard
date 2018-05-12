@@ -3,7 +3,7 @@ import Globals from '../../locales/globals';
 const EMAIL_REGEXP = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 const PASSWORD_REGEXP = /^[a-zA-Z0\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{8,}$/;
 export const NUMBER_REGEXP = /^\d{0,}(\.\d{0,}){0,1}$/;
-const PHONE_REGEXP = /^([0|+[0-9]{1,5})?([7-9][0-9]{9})$/;
+const PHONE_REGEXP = /^(\+{0,1}[0-9]{5,16})$/;
 
 export const requiredValidator = (msg) =>
   (value) =>

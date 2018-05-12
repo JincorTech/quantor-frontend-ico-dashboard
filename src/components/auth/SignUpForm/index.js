@@ -116,6 +116,10 @@ class SignUpForm extends Component {
               isBright/>
           </div>
 
+          <div className={s.phoneHint}>
+            For example +79083971234
+          </div>
+
           <Field
             className={s.select}
             name="country"
