@@ -11,7 +11,8 @@ import {
   passwordValidate,
   fullNameValidate,
   required,
-  phone
+  phone,
+  date
 } from '../../../utils/validators';
 
 import RenderInput from '../../forms/RenderInput';
@@ -132,10 +133,10 @@ class SignUpForm extends Component {
           </Field>
 
           <Field
-            className={s.field}
+            className={s.dob}
             name="dob"
             component={RenderDatePicker}
-            validate={required} />
+            validate={date} />
 
           <div className={s.field}>
             <Field
