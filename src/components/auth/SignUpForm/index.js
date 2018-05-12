@@ -15,6 +15,7 @@ import {
 } from '../../../utils/validators';
 
 import RenderInput from '../../forms/RenderInput';
+import RenderDatePicker from '../../forms/RenderDatePicker';
 import RenderPassword from '../../forms/RenderPassword';
 import RenderCheckbox from '../../forms/RenderCheckbox';
 import Button from '../../common/Button';
@@ -130,6 +131,12 @@ class SignUpForm extends Component {
               <option key={code} value={code}>&nbsp;&nbsp;{iso3311a2.getCountry(code)}</option>)}
           </Field>
 
+          <Field
+            className={s.field}
+            name="dob"
+            component={RenderDatePicker}
+            validate={required} />
+
           <div className={s.field}>
             <Field
               component={RenderPassword}
@@ -176,6 +183,7 @@ const FormComponent = reduxForm({
     email: '',
     phone: '',
     country: '',
+    dob: '',
     password: '',
     referral: '',
     agreeTos: false,
