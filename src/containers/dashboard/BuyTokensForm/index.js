@@ -38,6 +38,8 @@ class BuyTokensForm extends Component {
       return;
     }
 
+    this.props.change('eth', nextProps.ethValue);
+
     const ethValue = new BigNum(nextProps.ethValue);
     const expectedTxFee = new BigNum(nextProps.expectedTxFee);
     const rate = new BigNum(nextProps.rate);

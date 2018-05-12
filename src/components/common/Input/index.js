@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import MaskedInput from 'react-text-mask';
 import s from './styles.css';
 
 const cx = classNames.bind(s);
@@ -11,6 +12,7 @@ const Input = (props) => {
     tip,
     meta,
     isBright,
+    mask,
     ...restProps
   } = props;
 
@@ -35,9 +37,16 @@ const Input = (props) => {
 
   return (
     <div className={s.wrapper}>
-      <input
-        className={className}
-        {...restProps}/>
+      {mask ?
+        <MaskedInput
+          className={className}
+          {...restProps}
+          mask={mask}
+        /> :
+        <input
+          className={className}
+          {...restProps} />
+      }
       {renderTip(tip)}
     </div>
   );

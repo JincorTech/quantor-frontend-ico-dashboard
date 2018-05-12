@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router';
 import { translate } from 'react-i18next';
+import iso3311a2 from 'iso-3166-1-alpha-2';
 import s from './styles.css';
 
 import { namedRoutes } from '../../../routes';
@@ -9,10 +10,13 @@ import {
   emailValidate,
   passwordValidate,
   fullNameValidate,
-  required
+  required,
+  phone,
+  date
 } from '../../../utils/validators';
 
 import RenderInput from '../../forms/RenderInput';
+import RenderDatePicker from '../../forms/RenderDatePicker';
 import RenderPassword from '../../forms/RenderPassword';
 import RenderCheckbox from '../../forms/RenderCheckbox';
 import Button from '../../common/Button';
@@ -77,9 +81,19 @@ class SignUpForm extends Component {
           <div className={s.field}>
             <Field
               component={RenderInput}
-              name="name"
+              name="firstName"
               type="text"
-              placeholder={t('fullName')}
+              placeholder={'First Name'}
+              validate={fullNameValidate}
+              isBright/>
+          </div>
+
+          <div className={s.field}>
+            <Field
+              component={RenderInput}
+              name="lastName"
+              type="text"
+              placeholder={'Last Name'}
               validate={fullNameValidate}
               isBright/>
           </div>
@@ -93,6 +107,36 @@ class SignUpForm extends Component {
               validate={emailValidate}
               isBright/>
           </div>
+
+          <div className={s.field}>
+            <Field
+              component={RenderInput}
+              name="phone"
+              type="text"
+              placeholder={'Phone Number'}
+              validate={phone}
+              isBright/>
+          </div>
+
+          <div className={s.phoneHint}>
+            For example +79083971234
+          </div>
+
+          <Field
+            className={s.select}
+            name="country"
+            component="select"
+            validate={required}>
+            <option value=''>&nbsp;&nbsp;Choose your country...</option>
+            {iso3311a2.getCodes().map((code) =>
+              <option key={code} value={code}>&nbsp;&nbsp;{iso3311a2.getCountry(code)}</option>)}
+          </Field>
+
+          <Field
+            className={s.dob}
+            name="dob"
+            component={RenderDatePicker}
+            validate={date} />
 
           <div className={s.field}>
             <Field
@@ -135,8 +179,12 @@ class SignUpForm extends Component {
 const FormComponent = reduxForm({
   form: 'signUp',
   initialValues: {
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
+    phone: '',
+    country: '',
+    dob: '',
     password: '',
     referral: '',
     agreeTos: false,
