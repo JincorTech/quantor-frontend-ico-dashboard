@@ -157,7 +157,7 @@ class SignUpForm extends Component {
             <Field
               component={RenderCheckbox}
               label={<span>
-                {t('iAgreeWith')} <a href={Globals.agreementLink} target="_blank">{t('termsOfServices')}</a>
+                {t('iAgreeWith')} <a href={Globals.agreementLink} target="_blank"><span className={s.terms}>{t('termsOfServices')}</span></a>
               </span>}
               name="agreeTos"
               validate={required}/>

@@ -44,3 +44,10 @@
     margin-top: 20px;
   }
 }
+
+.terms {
+  font: normal 16px/24px Roboto;
+  margin-top: 5px;
+  text-align: center;
+  color: #fff;
+}

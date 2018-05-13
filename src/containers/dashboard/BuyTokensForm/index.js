@@ -155,6 +155,10 @@ class BuyTokensForm extends Component {
           <div className={s.button}>
             {renderButton()}
           </div>
+
+          <div className={s.terms}>
+            By purchasing the tokens you agree with <a href="http://qntr.co/tsa">token sale agreement</a>
+          </div>
         </form>
 
         <div className={s.tip}>
