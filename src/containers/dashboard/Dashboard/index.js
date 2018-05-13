@@ -45,7 +45,7 @@ class Dashboard extends Component {
           <div className={s.tabs}>
             <div
               className={tab === 'deposit' ? s.active : s.tab}
-              onClick={() => changeTab('deposit')}>Buy tokens from deposit</div>
+              onClick={() => changeTab('deposit')}>Buy tokens</div>
             {/* <div
               className={tab === 'gateway' ? s.active : s.tab}
               onClick={() => changeTab('gateway')}>Buy tokens via Coinpayments</div> */}
