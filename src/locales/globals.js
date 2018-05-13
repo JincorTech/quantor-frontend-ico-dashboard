@@ -10,7 +10,7 @@ export default {
   youtubeLink: 'https://youtube.com/channel/UCSyuV9MtsrlRLS5g4LeLABg',
   linkedInLink: 'https://www.linkedin.com/company/quantor/',
   faqLink: '',
-  agreementLink: '',
+  agreementLink: 'http://qntr.co/terms',
   whitepaperLink: '',
   partnersMail: 'partners@quantor.co',
   supportMail: 'support@quantor.co'

@@ -48,8 +48,8 @@ class Verification extends Component {
         <div className={s.title}>Verification failure.</div>
         <div className={s.text}>
           We were unable to match your account information automatically and uploaded documents.
-          Please reload the page and try again or contact Starflow support.<br/><br/>
-          <a href="mailto:support@starflow.com">support@starflow.com</a>
+          Please reload the page and try again or contact Quantor support.<br/><br/>
+          <a href="mailto:support@quantor.co">support@quantor.co</a>
         </div>
       </div>
     );
@@ -59,7 +59,7 @@ class Verification extends Component {
         <div className={s.title}>Account verification complete</div>
         <div className={s.text}>
           Your personal data has been verified successfully,
-          and now you have full access to Starflow crowdsale.
+          and now you have full access to Quantor crowdsale.
         </div>
       </div>
     );
