@@ -76,7 +76,7 @@ class BuyTokensForm extends Component {
       this.props.change('eth', maxInvest.toString());
       this.props.change('jcr', jcr.toFixed(3));
       this.setState({
-        buttonText: ` for ${this.state.ethAmount.toString()} ETH`,
+        buttonText: ` for ${ethBalance.toString()} ETH`,
         purchaseIsValid: jcr.isGreaterThanOrEqualTo(50000)
       });
     } else {
