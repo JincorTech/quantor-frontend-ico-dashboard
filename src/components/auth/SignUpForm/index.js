@@ -22,6 +22,10 @@ import RenderCheckbox from '../../forms/RenderCheckbox';
 import Button from '../../common/Button';
 import Globals from '../../../locales/globals';
 
+const RestrictedCountriesCodes = [
+  'US', 'UM', 'VI', 'CN', 'SG', 'CA', 'KR', 'EC', 'GT', 'VN', 'BD'
+];
+
 class SignUpForm extends Component {
   componentDidMount() {
     const { change } = this.props;
@@ -128,7 +132,9 @@ class SignUpForm extends Component {
             component="select"
             validate={required}>
             <option value=''>&nbsp;&nbsp;Choose your country...</option>
-            {iso3311a2.getCodes().map((code) =>
+            {iso3311a2.getCodes()
+                      .filter((code) => !RestrictedCountriesCodes.includes(code))
+                      .map((code) =>
               <option key={code} value={code}>&nbsp;&nbsp;{iso3311a2.getCountry(code)}</option>)}
           </Field>
 
@@ -163,6 +169,23 @@ class SignUpForm extends Component {
               validate={required}/>
           </div>
 
+          <div className={s.checkbox}>
+            <Field
+              component={RenderCheckbox}
+              label={<span className={s.agreeCountries}>
+                I'm not a citizen or resident of the USA, including District of Columbia,
+                United States Virgins Islands, China, Singapore, Canada,
+                South Korea, Ecuador, Guatemala, Vietnam, Bangladesh.
+              </span>}
+              name="agreeCountries"
+              validate={required}/>
+          </div>
+
+          <div className={s.agreeCountriesHint}>
+            *Both citizens and residents of these countries
+            are restricted to participate in token-sale
+          </div>
+
           <div className={s.button}>
             <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
           </div>
@@ -188,6 +211,7 @@ const FormComponent = reduxForm({
     password: '',
     referral: '',
     agreeTos: false,
+    agreeCountries: false,
     source: {
       utm_source: '',
       utm_medium: '',
