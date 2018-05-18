@@ -167,7 +167,7 @@ class BuyTokensGatewayForm extends Component {
           </div>
 
           <div className={s.terms}>
-            By purchasing the tokens you agree with <a href="http://qntr.co/tsa">token sale agreement</a>
+            By purchasing the tokens you agree with <a target="_blank" href="http://qntr.co/tsa">Token Sale Agreement</a>
           </div>
         </form>
 
