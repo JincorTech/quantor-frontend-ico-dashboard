@@ -39,5 +39,11 @@ export default createReducer({
     state.merge({
       user: payload
     })
+  ),
+
+  [startUserPolling.SUCCESS]: (state, { payload }) => (
+    state.merge({
+      user: payload
+    })
   )
 }, initialState);

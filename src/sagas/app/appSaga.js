@@ -100,12 +100,14 @@ function* fetchUserSaga() {
  */
 
 function* startUserPollingIterator() {
-  try {
-    const data = yield call(get, apiUserPath);
-    yield put(fetchUser.success(data));
-    yield call(delay, 20000);
-  } catch (e) {
-    yield put(fetchUser.failure(e));
+  while (true) {
+    try {
+      const data = yield call(get, apiUserPath);
+      yield put(startUserPolling.success(data));
+      yield call(delay, 20000);
+    } catch (e) {
+      yield put(startUserPolling.failure(e));
+    }
   }
 }
 
