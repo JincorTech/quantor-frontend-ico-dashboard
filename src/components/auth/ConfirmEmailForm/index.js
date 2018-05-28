@@ -38,6 +38,7 @@ class ConfirmEmailForm extends Component {
 
         <div className={s.description}>
           {t('confirmEmailDescription')}
+          It might take few minutes.
         </div>
 
         {error && <div className={s.error}>{error}</div>}
