@@ -20,3 +20,10 @@
   font: 16px Roboto;
   color: #88affe;
 }
+
+.link {
+  display: inline-block;
+  margin-bottom: 15px;
+  font: 16px Roboto;
+  color: #da2222;
+}

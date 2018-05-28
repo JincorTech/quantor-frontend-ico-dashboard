@@ -85,6 +85,9 @@ class Verification extends Component {
 
     return (
       <div>
+        <div>
+          <a className={s.link} target="_blank" rel="noopener noreferrer" href="https://tokens.quantor.co/assets/Guide_to_pass_KYC_at_Quantor.pdf">How to pass KYC verification</a>
+        </div>
         {renderPage()}
       </div>
     );
