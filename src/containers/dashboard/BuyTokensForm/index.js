@@ -175,6 +175,9 @@ class BuyTokensForm extends Component {
             {t('buyTokensTip_2')}
           </p>
           <p>
+            If you need support, please contact us on <a target="_blank" rel="noopener noreferrer" href="https://t.me/QuantorEN">Telegram Quantor</a>
+          </p>
+          <p>
             {t('buyTokensTip_3')}<br/>
             <a onClick={() => openTxFeeHelp()}>{t('whatsTheGas')}</a>
           </p>
