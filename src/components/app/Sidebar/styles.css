@@ -1,6 +1,5 @@
 .sidebar {
   background-color: #101d40;
-  position: relative;
   height: 100%;
 }
 
@@ -9,7 +8,7 @@
 
   @media only screen and (max-width: 480px) {
     display: block;
-    position: absolute -17px -26px * *;
+    position: absolute 36px 26px * *;
     z-index: 1;
   }
 }
@@ -64,8 +63,7 @@
 }
 
 .socials {
-  position: absolute * * 20px *;
-  margin: 0 -10px;
+  margin: 20px 0 0 -10px;
 
   & > a {
     display: inline-block;
@@ -74,6 +72,11 @@
     & > img {
       size: 24px;
     }
+  }
+
+  @media only screen and (min-height: 600px) {
+    position: absolute * * 20px *;
+    margin: 0 -10px;
   }
 }
 
