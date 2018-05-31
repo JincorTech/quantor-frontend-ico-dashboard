@@ -75,7 +75,7 @@ class BuyTokensGatewayForm extends Component {
       this.setState({
         buttonText: ` for ${currencyAmount.toString()} ${nextProps.selectedCurrency}`,
         totalAmount: `${currencyAmount}`,
-        purchaseIsValid: tokens.isGreaterThanOrEqualTo(50000)
+        purchaseIsValid: tokens.isGreaterThanOrEqualTo(67500)
       });
     } else {
       this.props.change('tokens', '');

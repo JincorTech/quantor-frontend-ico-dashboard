@@ -53,7 +53,7 @@ class BuyTokensForm extends Component {
       this.props.setEthAmount(ethAmount.toString());
       this.setState({
         buttonText: ` for ${ethAmount.toString()} ETH`,
-        purchaseIsValid: jcr.isGreaterThanOrEqualTo(50000)
+        purchaseIsValid: jcr.isGreaterThanOrEqualTo(67500)
       });
     } else {
       this.props.change('jcr', '');
@@ -77,7 +77,7 @@ class BuyTokensForm extends Component {
       this.props.change('jcr', jcr.toFixed(3));
       this.setState({
         buttonText: ` for ${ethBalance.toString()} ETH`,
-        purchaseIsValid: jcr.isGreaterThanOrEqualTo(50000)
+        purchaseIsValid: jcr.isGreaterThanOrEqualTo(67500)
       });
     } else {
       this.setState({ buttonText: '' });
