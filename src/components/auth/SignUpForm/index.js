@@ -11,7 +11,7 @@ import {
   passwordValidate,
   fullNameValidate,
   required,
-  phone,
+  // phone,
   date
 } from '../../../utils/validators';
 
@@ -112,7 +112,7 @@ class SignUpForm extends Component {
               isBright/>
           </div>
 
-          <div className={s.field}>
+          {/* <div className={s.field}>
             <Field
               component={RenderInput}
               name="phone"
@@ -120,11 +120,11 @@ class SignUpForm extends Component {
               placeholder={'Phone Number'}
               validate={phone}
               isBright/>
-          </div>
+          </div> */}
 
-          <div className={s.phoneHint}>
+          {/* <div className={s.phoneHint}>
             For example +79083971234
-          </div>
+          </div> */}
 
           <Field
             className={s.select}
@@ -205,7 +205,7 @@ const FormComponent = reduxForm({
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    // phone: '',
     country: '',
     dob: '',
     password: '',
