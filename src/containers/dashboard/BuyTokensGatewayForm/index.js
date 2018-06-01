@@ -75,7 +75,7 @@ class BuyTokensGatewayForm extends Component {
       this.setState({
         buttonText: ` for ${currencyAmount.toString()} ${nextProps.selectedCurrency}`,
         totalAmount: `${currencyAmount}`,
-        purchaseIsValid: tokens.isGreaterThanOrEqualTo(67500)
+        purchaseIsValid: tokens.isGreaterThanOrEqualTo(77500)
       });
     } else {
       this.props.change('tokens', '');
@@ -158,7 +158,7 @@ class BuyTokensGatewayForm extends Component {
               Purchising Tx fee: {renderIfAvailable(ethTxFee)} ETH
             </span>
             <span title={minInvest}>
-              Min. contribution: 50 000 QNT
+              Min. contribution: 77 500 QNT
             </span>
           </div>
 

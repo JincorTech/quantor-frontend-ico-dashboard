@@ -53,7 +53,7 @@ class BuyTokensForm extends Component {
       this.props.setEthAmount(ethAmount.toString());
       this.setState({
         buttonText: ` for ${ethAmount.toString()} ETH`,
-        purchaseIsValid: jcr.isGreaterThanOrEqualTo(67500)
+        purchaseIsValid: jcr.isGreaterThanOrEqualTo(77500)
       });
     } else {
       this.props.change('jcr', '');
@@ -77,7 +77,7 @@ class BuyTokensForm extends Component {
       this.props.change('jcr', jcr.toFixed(3));
       this.setState({
         buttonText: ` for ${ethBalance.toString()} ETH`,
-        purchaseIsValid: jcr.isGreaterThanOrEqualTo(67500)
+        purchaseIsValid: jcr.isGreaterThanOrEqualTo(77500)
       });
     } else {
       this.setState({ buttonText: '' });
@@ -153,7 +153,7 @@ class BuyTokensForm extends Component {
 
           <div className={s.gas}>
             <span title={expectedTxFee}>{t('gasFee')} {renderIfAvailable(expectedTxFee)} ETH</span>
-            <span title={minInvest}>{t('minContribution')} 50 000 QNT</span>
+            <span title={minInvest}>{t('minContribution')} 77 500 QNT</span>
           </div>
 
           <div className={s.allIn}>
