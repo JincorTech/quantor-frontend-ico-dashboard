@@ -35,7 +35,8 @@ class SignUpForm extends Component {
   constructor() {
     super();
     this.state = {
-      step: Step.Step1
+      step: Step.Step1,
+      error: null
     };
   }
 
@@ -78,7 +79,7 @@ class SignUpForm extends Component {
         </div>
 
         <Button onClick={() => {
-          this.setState({ step: Step.Step2 });
+          this.setState({ step: Step.Step2, error: null });
         }} spinner={spinner} disabled={invalid} isBright>Next step</Button>
       </React.Fragment>
     );
@@ -209,22 +210,29 @@ class SignUpForm extends Component {
     );
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.error) {
+      this.setState({ step: Step.Step1, error: nextProps.error });
+    }
+  }
+
   render() {
     const {
       t,
-      handleSubmit,
-      error
+      handleSubmit
     } = this.props;
 
     return (
       <div>
         <div className={s.title}>{t('signUp')}</div>
 
-        {error && <div className={s.error}>{error}</div>}
+        {this.state.error && <div className={s.error}>{this.state.error}</div>}
 
         <form id="mk_lk_signup" onSubmit={handleSubmit}>
         {
-          this.state.step === Step.Step1 ? this.renderStep1() : this.renderStep2()
+          (this.state.step === Step.Step1 || this.state.error)
+            ? this.renderStep1()
+            : this.renderStep2()
         }
         </form>
 
