@@ -23,6 +23,7 @@ class BuyTokensGatewayForm extends Component {
     this.state = {
       buttonText: '',
       totalAmount: '',
+      purchaseIsValid: false
     };
 
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
@@ -61,19 +62,20 @@ class BuyTokensGatewayForm extends Component {
     const currencyRate = new BigNum(this.getCurrencyRateFromProps(nextProps));
     const ethTxFee = new BigNum(nextProps.ethTxFee);
     const ethRate = new BigNum(this.getEthRateFromProps(nextProps));
-    const minInvest = new BigNum(0.1);
+    const minInvest = new BigNum(0.00001);
 
     if (currencyValue.toNumber() && currencyValue.isGreaterThanOrEqualTo(minInvest)) {
       const eth = currencyValue.multipliedBy(currencyRate).dividedBy(ethRate);
-      const tokens = eth.dividedBy(nextProps.ethTokenPrice).toFixed(3);
+      const tokens = eth.dividedBy(nextProps.ethTokenPrice);
       const expectedFee = nextProps.selectedCurrency === 'ETH'
         ? ethTxFee
         : ethTxFee.multipliedBy(ethRate).dividedBy(currencyRate);
       const currencyAmount = currencyValue.plus(expectedFee);
-      this.props.change('tokens', tokens);
+      this.props.change('tokens', tokens.toFixed(3));
       this.setState({
         buttonText: ` for ${currencyAmount.toString()} ${nextProps.selectedCurrency}`,
-        totalAmount: `${currencyAmount}`
+        totalAmount: `${currencyAmount}`,
+        purchaseIsValid: tokens.isGreaterThanOrEqualTo(77500)
       });
     } else {
       this.props.change('tokens', '');
@@ -104,14 +106,14 @@ class BuyTokensGatewayForm extends Component {
               amount: this.state.totalAmount,
               currency: selectedCurrency
             })}
-            disabled={invalid}
+            disabled={invalid || !this.state.purchaseIsValid}
             spinner={spinner}>Purchase tokens{this.state.buttonText}</Button>
         );
       }
 
       return (
         <Button
-          disabled={invalid}
+          disabled={invalid || !this.state.purchaseIsValid}
           onClick={() => openKycAlertPopup()}>Purchase tokens{this.state.buttonText}</Button>
       );
     };
@@ -156,7 +158,7 @@ class BuyTokensGatewayForm extends Component {
               Purchising Tx fee: {renderIfAvailable(ethTxFee)} ETH
             </span>
             <span title={minInvest}>
-              Min. contribution: {renderIfAvailable(minInvest)} {selectedCurrency}
+              Min. contribution: 77 500 QNT
             </span>
           </div>
 
@@ -165,7 +167,7 @@ class BuyTokensGatewayForm extends Component {
           </div>
 
           <div className={s.terms}>
-            By purchasing the tokens you agree with <a href="http://qntr.co/tsa">token sale agreement</a>
+            By purchasing the tokens you agree with <a target="_blank" href="http://qntr.co/tsa">Token Sale Agreement</a>
           </div>
         </form>
 

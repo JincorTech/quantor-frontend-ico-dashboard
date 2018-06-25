@@ -1,6 +1,7 @@
-import { all, takeLatest, call, fork, put } from 'redux-saga/effects';
+import { all, takeLatest, call, fork, put, take, race, select } from 'redux-saga/effects';
 import { removeToken, setToken, getToken, isAuth } from '../../utils/auth';
 import { get } from '../../utils/fetch';
+import delay from '../../utils/sagas';
 
 import {
   login,
@@ -9,7 +10,9 @@ import {
   CHECK_AUTH,
   LOGOUT,
   logout,
-  fetchUser
+  fetchUser,
+  startUserPolling,
+  STOP_USER_POLLING
 } from '../../redux/modules/app/app';
 
 /*
@@ -70,9 +73,11 @@ function* logoutSaga() {
  * Fetch user
  */
 
+const apiUserPath = '/user/me';
+
 function* fetchUserIterator() {
   try {
-    const data = yield call(get, '/user/me');
+    const data = yield call(get, apiUserPath);
     yield put(fetchUser.success(data));
   } catch (e) {
     yield put(fetchUser.failure(e));
@@ -91,6 +96,38 @@ function* fetchUserSaga() {
 }
 
 /*
+ * Start user polling
+ */
+
+const getAuthorized = (state) => state.app.app.authorized;
+
+function* startUserPollingIterator() {
+  while (true) {
+    try {
+      const isAuthorized = yield select(getAuthorized);
+      if (isAuthorized) {
+        const data = yield call(get, apiUserPath);
+        yield put(startUserPolling.success(data));
+      }
+      yield call(delay, 20000);
+    } catch (e) {
+      yield put(startUserPolling.failure(e));
+      yield call(delay, 20000);
+    }
+  }
+}
+
+function* startUserPollingSaga() {
+  while (true) {
+    yield take(startUserPolling.REQUEST);
+    yield race([
+      call(startUserPollingIterator),
+      take(STOP_USER_POLLING)
+    ]);
+  }
+}
+
+/*
  * Export
  */
 
@@ -99,6 +136,7 @@ export default function* () {
     fork(loginSaga),
     fork(checkAuthSaga),
     fork(logoutSaga),
-    fork(fetchUserSaga)
+    fork(fetchUserSaga),
+    fork(startUserPollingSaga)
   ]);
 }

@@ -20,7 +20,8 @@ class BuyTokensForm extends Component {
     super(props);
 
     this.state = {
-      buttonText: ''
+      buttonText: '',
+      purchaseIsValid: false
     };
 
     this._investAllIn = this._investAllIn.bind(this);
@@ -43,14 +44,17 @@ class BuyTokensForm extends Component {
     const ethValue = new BigNum(nextProps.ethValue);
     const expectedTxFee = new BigNum(nextProps.expectedTxFee);
     const rate = new BigNum(nextProps.rate);
-    const minInvest = new BigNum(0.1);
+    const minInvest = new BigNum(0.00001);
 
     if (ethValue.toNumber() && ethValue.isGreaterThanOrEqualTo(minInvest)) {
-      const jcr = ethValue.dividedBy(rate).toFixed(3);
+      const jcr = ethValue.dividedBy(rate);
       const ethAmount = ethValue.plus(expectedTxFee);
-      this.props.change('jcr', jcr);
+      this.props.change('jcr', jcr.toFixed(3));
       this.props.setEthAmount(ethAmount.toString());
-      this.setState({ buttonText: ` for ${ethAmount.toString()} ETH` });
+      this.setState({
+        buttonText: ` for ${ethAmount.toString()} ETH`,
+        purchaseIsValid: jcr.isGreaterThanOrEqualTo(77500)
+      });
     } else {
       this.props.change('jcr', '');
       this.setState({ buttonText: '' });
@@ -62,15 +66,19 @@ class BuyTokensForm extends Component {
     const expectedTxFee = new BigNum(this.props.expectedTxFee);
     const rate = new BigNum(this.props.rate);
     const maxInvest = ethBalance.minus(expectedTxFee);
-    const minInvest = new BigNum(0.1);
-    const jcr = maxInvest.dividedBy(rate).toFixed(3);
+    const minInvest = new BigNum(0.00001);
+    const jcr = maxInvest.dividedBy(rate);
     this.setState({ ethAmount: ethBalance.toString() });
 
     if (ethBalance.isGreaterThanOrEqualTo(minInvest)) {
       this.setState({ buttonText: ` for ${ethBalance.toString()}` });
       this.props.setEth(maxInvest.toString());
       this.props.change('eth', maxInvest.toString());
-      this.props.change('jcr', jcr);
+      this.props.change('jcr', jcr.toFixed(3));
+      this.setState({
+        buttonText: ` for ${ethBalance.toString()} ETH`,
+        purchaseIsValid: jcr.isGreaterThanOrEqualTo(77500)
+      });
     } else {
       this.setState({ buttonText: '' });
     }
@@ -102,7 +110,7 @@ class BuyTokensForm extends Component {
 
       return (
         <Button
-          disabled={invalid}
+          disabled={invalid || !this.state.purchaseIsValid}
           onClick={() => openKycAlertPopup()}>{t('purchaseTokens')}{this.state.buttonText}</Button>
       );
     };
@@ -145,7 +153,7 @@ class BuyTokensForm extends Component {
 
           <div className={s.gas}>
             <span title={expectedTxFee}>{t('gasFee')} {renderIfAvailable(expectedTxFee)} ETH</span>
-            <span title={minInvest}>{t('minContribution')} {renderIfAvailable(minInvest)} ETH</span>
+            <span title={minInvest}>{t('minContribution')} 77 500 QNT</span>
           </div>
 
           <div className={s.allIn}>
@@ -157,7 +165,7 @@ class BuyTokensForm extends Component {
           </div>
 
           <div className={s.terms}>
-            By purchasing the tokens you agree with <a href="http://qntr.co/tsa">token sale agreement</a>
+            By purchasing the tokens you agree with <a target="_blank" href="http://qntr.co/tsa">Token Sale Agreement</a>
           </div>
         </form>
 
@@ -165,6 +173,9 @@ class BuyTokensForm extends Component {
           <p>
             {t('buyTokensTip_1')}<br/>
             {t('buyTokensTip_2')}
+          </p>
+          <p>
+            If you need support, please contact us on <a target="_blank" rel="noopener noreferrer" href="https://t.me/QuantorEN">Telegram Quantor</a>
           </p>
           <p>
             {t('buyTokensTip_3')}<br/>

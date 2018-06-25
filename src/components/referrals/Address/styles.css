@@ -17,3 +17,9 @@
 .copy {
   margin: 15px 0 25px;
 }
+
+.warning {
+  font: bold 16px Roboto;
+  color: #da2222;
+  margin-bottom: 15px;
+}

@@ -11,7 +11,7 @@ import {
   passwordValidate,
   fullNameValidate,
   required,
-  phone,
+  // phone,
   date
 } from '../../../utils/validators';
 
@@ -22,7 +22,24 @@ import RenderCheckbox from '../../forms/RenderCheckbox';
 import Button from '../../common/Button';
 import Globals from '../../../locales/globals';
 
+const RestrictedCountriesCodes = [
+  'US', 'UM', 'VI', 'CN', 'SG', 'CA', 'KR', 'EC', 'GT', 'VN', 'BD'
+];
+
+const Step = Object.freeze({
+  Step1: 0,
+  Step2: 1
+});
+
 class SignUpForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      step: Step.Step1,
+      error: null
+    };
+  }
+
   componentDidMount() {
     const { change } = this.props;
 
@@ -37,78 +54,65 @@ class SignUpForm extends Component {
     change('source.gtm', gtm);
   }
 
-  render() {
-    const {
-      t,
-      spinner,
-      handleSubmit,
-      invalid,
-      error,
-      referralCode
-    } = this.props;
+  renderStep1 = () => {
+    const { t, spinner, invalid } = this.props;
 
-    const renderReferralField = (code) => {
-      if (code) {
-        this.props.change('referral', code);
-        return (
-          <Field
-            component={RenderInput}
-            name="referral"
-            type="hidden"
-            disabled/>
-        );
-      }
-
-      return (
+    return (
+      <React.Fragment>
         <div className={s.field}>
           <Field
             component={RenderInput}
-            name="referral"
+            name="email"
             type="text"
-            placeholder={t('referralCode')}
-            isBright/>
+            placeholder={t('email')}
+            validate={emailValidate}
+            isBright />
         </div>
-      );
-    };
+
+        <div className={s.field}>
+          <Field
+            component={RenderPassword}
+            name="password"
+            type="password"
+            placeholder={t('password')}
+            validate={passwordValidate} />
+        </div>
+
+        <Button onClick={() => {
+          this.setState({ step: Step.Step2, error: null });
+        }} spinner={spinner} disabled={invalid} isBright>Next step</Button>
+      </React.Fragment>
+    );
+  }
+
+  renderStep2 = () => {
+    const {
+      t, referralCode, spinner, invalid
+    } = this.props;
 
     return (
-      <div>
-        <div className={s.title}>{t('signUp')}</div>
+      <React.Fragment>
+        <div className={s.field}>
+          <Field
+            component={RenderInput}
+            name="firstName"
+            type="text"
+            placeholder={'First Name'}
+            validate={fullNameValidate}
+            isBright />
+        </div>
 
-        {error && <div className={s.error}>{error}</div>}
+        <div className={s.field}>
+          <Field
+            component={RenderInput}
+            name="lastName"
+            type="text"
+            placeholder={'Last Name'}
+            validate={fullNameValidate}
+            isBright />
+        </div>
 
-        <form id="mk_lk_signup" onSubmit={handleSubmit}>
-          <div className={s.field}>
-            <Field
-              component={RenderInput}
-              name="firstName"
-              type="text"
-              placeholder={'First Name'}
-              validate={fullNameValidate}
-              isBright/>
-          </div>
-
-          <div className={s.field}>
-            <Field
-              component={RenderInput}
-              name="lastName"
-              type="text"
-              placeholder={'Last Name'}
-              validate={fullNameValidate}
-              isBright/>
-          </div>
-
-          <div className={s.field}>
-            <Field
-              component={RenderInput}
-              name="email"
-              type="text"
-              placeholder={t('email')}
-              validate={emailValidate}
-              isBright/>
-          </div>
-
-          <div className={s.field}>
+        {/* <div className={s.field}>
             <Field
               component={RenderInput}
               name="phone"
@@ -116,56 +120,120 @@ class SignUpForm extends Component {
               placeholder={'Phone Number'}
               validate={phone}
               isBright/>
-          </div>
+          </div> */}
 
-          <div className={s.phoneHint}>
+        {/* <div className={s.phoneHint}>
             For example +79083971234
-          </div>
+          </div> */}
 
-          <Field
-            className={s.select}
-            name="country"
-            component="select"
-            validate={required}>
-            <option value=''>&nbsp;&nbsp;Choose your country...</option>
-            {iso3311a2.getCodes().map((code) =>
+        <Field
+          className={s.select}
+          name="country"
+          component="select"
+          validate={required}>
+          <option value=''>&nbsp;&nbsp;Choose your country...</option>
+          {iso3311a2.getCodes()
+            .filter((code) => !RestrictedCountriesCodes.includes(code))
+            .map((code) =>
               <option key={code} value={code}>&nbsp;&nbsp;{iso3311a2.getCountry(code)}</option>)}
-          </Field>
+        </Field>
 
+        <Field
+          className={s.dob}
+          name="dob"
+          component={RenderDatePicker}
+          validate={date} />
+
+        {this.renderReferralField(referralCode)}
+
+        <div className={s.description}>
+          {t('passwordLengthDescription')}
+        </div>
+
+        <div className={s.checkbox}>
           <Field
-            className={s.dob}
-            name="dob"
-            component={RenderDatePicker}
-            validate={date} />
+            component={RenderCheckbox}
+            label={<span>
+              {t('iAgreeWith')} <a href={Globals.agreementLink} target="_blank"><span className={s.terms}>{t('termsOfServices')}</span></a>
+            </span>}
+            name="agreeTos"
+            validate={required} />
+        </div>
 
-          <div className={s.field}>
-            <Field
-              component={RenderPassword}
-              name="password"
-              type="password"
-              placeholder={t('password')}
-              validate={passwordValidate}/>
-          </div>
-
-          {renderReferralField(referralCode)}
-
-          <div className={s.description}>
-            {t('passwordLengthDescription')}
-          </div>
-
-          <div className={s.checkbox}>
-            <Field
-              component={RenderCheckbox}
-              label={<span>
-                {t('iAgreeWith')} <a href={Globals.agreementLink} target="_blank"><span className={s.terms}>{t('termsOfServices')}</span></a>
+        <div className={s.checkbox}>
+          <Field
+            component={RenderCheckbox}
+            label={<span className={s.agreeCountries}>
+              I'm not a citizen or resident of the USA, including District of Columbia,
+              United States Virgins Islands, China, Singapore, Canada,
+              South Korea, Ecuador, Guatemala, Vietnam, Bangladesh.
               </span>}
-              name="agreeTos"
-              validate={required}/>
+            name="agreeCountries"
+            validate={required} />
+        </div>
+
+        <div className={s.agreeCountriesHint}>
+          *Both citizens and residents of these countries
+          are restricted to participate in token-sale
           </div>
 
-          <div className={s.button}>
-            <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
-          </div>
+        <div className={s.button}>
+          <Button type="submit" spinner={spinner} disabled={invalid} isBright>{t('submit')}</Button>
+        </div>
+      </React.Fragment>
+    );
+  }
+
+  renderReferralField = (code) => {
+    const { t } = this.props;
+
+    if (code) {
+      this.props.change('referral', code);
+      return (
+        <Field
+          component={RenderInput}
+          name="referral"
+          type="hidden"
+          disabled />
+      );
+    }
+
+    return (
+      <div className={s.field}>
+        <Field
+          component={RenderInput}
+          name="referral"
+          type="text"
+          placeholder={t('referralCode')}
+          isBright />
+      </div>
+    );
+  };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.error) {
+      this.setState({ step: Step.Step1, error: nextProps.error });
+    }
+  }
+
+  render() {
+    const {
+      t,
+      handleSubmit
+    } = this.props;
+
+    return (
+      <div>
+        <div className={s.title}>{t('signUp')}</div>
+
+        {this.state.error && <div className={s.error}>{this.state.error}</div>}
+
+        <form id="mk_lk_signup" onSubmit={handleSubmit}>
+        {
+          (this.state.step === Step.Step1 || this.state.error)
+            ? this.renderStep1()
+            : this.renderStep2()
+        }
         </form>
 
         <div className={s.footer}>
@@ -182,12 +250,13 @@ const FormComponent = reduxForm({
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    // phone: '',
     country: '',
     dob: '',
     password: '',
     referral: '',
     agreeTos: false,
+    agreeCountries: false,
     source: {
       utm_source: '',
       utm_medium: '',

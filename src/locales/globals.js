@@ -12,6 +12,6 @@ export default {
   faqLink: '',
   agreementLink: 'http://qntr.co/terms',
   whitepaperLink: '',
-  partnersMail: 'partners@quantor.co',
+  partnersMail: 'partner@quantor.co',
   supportMail: 'support@quantor.co'
 };

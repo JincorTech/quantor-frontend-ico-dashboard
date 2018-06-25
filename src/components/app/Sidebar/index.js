@@ -11,11 +11,8 @@ const Sidebar = (props) => {
     t,
     closeSidebar,
     kyc,
-    location,
     logout
   } = props;
-
-  const { pathname } = location;
 
   return (
     <div className={s.sidebar}>
@@ -61,9 +58,11 @@ const Sidebar = (props) => {
           to={namedRoutes.account}>{t('account')}</Link>
 
         {!kyc
-          ? <a
-            className={pathname === namedRoutes.verification ? s.activeLink : s.link}
-            href={namedRoutes.verification}>{t('verification')}</a>
+          ? <Link
+            onClick={() => closeSidebar()}
+            className={s.link}
+            activeClassName={s.active}
+            to={namedRoutes.verification}>{t('verification')}</Link>
           : null}
       </div>
 

@@ -23,6 +23,7 @@ class Address extends Component {
     return (
       <div className={s.address}>
         <div className={s.title}>{t('addressTitle')}</div>
+        <div className={s.warning}>Partner program will work during the main stage of ICO</div>
         <div className={s.text}>
         {t('addressText_1')}
         <br/><br/>

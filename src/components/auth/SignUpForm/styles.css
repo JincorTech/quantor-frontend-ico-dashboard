@@ -69,3 +69,13 @@
 .terms {
   color: #5480ff;
 }
+
+.agreeCountries {
+  color: #000;
+  line-height: 1.8;
+}
+
+.agreeCountriesHint {
+  font-size: 14px;
+  margin: -25px 0 40px;
+}
