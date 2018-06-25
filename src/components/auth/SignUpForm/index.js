@@ -78,6 +78,10 @@ class SignUpForm extends Component {
             validate={passwordValidate} />
         </div>
 
+        <div className={s.description}>
+          {t('passwordLengthDescription')}
+        </div>
+
         <Button onClick={() => {
           this.setState({ step: Step.Step2, error: null });
         }} spinner={spinner} disabled={invalid} isBright>Next step</Button>
@@ -145,10 +149,6 @@ class SignUpForm extends Component {
           validate={date} />
 
         {this.renderReferralField(referralCode)}
-
-        <div className={s.description}>
-          {t('passwordLengthDescription')}
-        </div>
 
         <div className={s.checkbox}>
           <Field
